@@ -1,0 +1,11 @@
+---
+- hosts: tomcat
+  become: true
+  tasks:
+    - name: example copying file with owner and permissions
+      copy:
+        src: /tmp/artifact/myweb-0.15.0.war
+        dest: /opt/tomcat8/webapps/myweb.war
+        owner: ec2-user
+        group: ec2-user
+        mode: 0644
